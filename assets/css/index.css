@@ -164,6 +164,7 @@ header ul li {
 .game {
     color: #fff;
     cursor: pointer;
+    margin-bottom: 100px;
 }
 
 .game .image {

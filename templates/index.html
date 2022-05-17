@@ -1,5 +1,7 @@
 {% load static %}
 
+{% static "images" as baseUrl %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -42,111 +44,19 @@
     <section class="section">
         <h1>Popular Games</h1>
         <div class="games">
+            {% for game in all_games %}
             <div class="game">
                 <div class="image">
-                    <img src="{% static './assets/assassin\'s_creed.jpg' %}">
+                    <img src="{{media_url}}{{ game.image }}">
                     <div class="overlay"></div>
-                    <p class="about">Be an assassin who kills templars for the sake of the world.</p>
+                    <p class="about">{{game.desc}}</p>
                 </div>
                 <div class="description">
-                    <h2>Assassin's s_creed</h2>
-                    <h4>$35</h4>
+                    <h2>{{game.name}}</h2>
+                    <h4>${{game.price}}</h4>
                 </div>
             </div>
-            <div class="game">
-                <div class="image">
-                    <img src="{% static './assets/call_of_duty.jpg' %}">
-                    <div class="overlay"></div>
-                    <p class="about">Live virtually in the events of the cold war.</p>
-                </div>
-                <div class="description">
-                    <h2>Call of Duty</h2>
-                    <h4>$60</h4>
-                </div>
-            </div>
-            <div class="game">
-                <div class="image">
-                    <img src="{% static 'assets/dying_light_2.jpg' %}">
-                    <div class="overlay"></div>
-                    <p class="about">Fight criminals by light and survive zombies at night.</p>
-                </div>
-                <div class="description">
-                    <h2>Dying light 2</h2>
-                    <h4>$50</h4>
-                </div>
-            </div>
-        </div>
-
-        <div class="games">
-            <div class="game">
-                <div class="image">
-                    <img src="{% static 'assets/spiderman.jpg' %}">
-                    <div class="overlay"></div>
-                    <p class="about">You are hero with super power who fights villans.</p>
-                </div>
-                <div class="description">
-                    <h2>Spiderman</h2>
-                    <h4>$35</h4>
-                </div>
-            </div>
-            <div class="game">
-                <div class="image">
-                    <img src="{% static 'assets/sekiro.jpg' %}">
-                    <div class="overlay"></div>
-                    <p class="about">Be a shinobi who revenges for his samurai clan and lord.</p>
-                </div>
-                <div class="description">
-                    <h2>Sekiro</h2>
-                    <h4>$25</h4>
-                </div>
-            </div>
-            <div class="game">
-                <div class="image">
-                    <img src="{% static 'assets/doom.jpg' %}">
-                    <div class="overlay"></div>
-                    <p class="about">You are hero with super power who fights villans.</p>
-                </div>
-                <div class="description">
-                    <h2>Doom</h2>
-                    <h4>$35</h4>
-                </div>
-            </div>
-        </div>
-
-        <div class="games" style="margin-top: 200px;">
-            <div class="game">
-                <div class="image">
-                    <img src="{% static 'assets/dark_souls.jpg' %}">
-                    <div class="overlay"></div>
-                    <p class="about">Find and return the five Lords of Cinder to their thrones at Firelink Shrine in order to link the flame again.</p>
-                </div>
-                <div class="description">
-                    <h2>Dark Souls III</h2>
-                    <h4>$35</h4>
-                </div>
-            </div>
-            <div class="game">
-                <div class="image">
-                    <img src="{% static 'assets/titan_fall.jpg' %}">
-                    <div class="overlay"></div>
-                    <p class="about">Fight the enemies while living the future</p>
-                </div>
-                <div class="description">
-                    <h2>Titan Fall</h2>
-                    <h4>$25</h4>
-                </div>
-            </div>
-            <div class="game">
-                <div class="image">
-                    <img src="{% static 'assets/red_dead.jpg' %}">
-                    <div class="overlay"></div>
-                    <p class="about">Live the life of cowboys with the magnificent story.</p>
-                </div>
-                <div class="description">
-                    <h2>Red Dead II</h2>
-                    <h4>$45</h4>
-                </div>
-            </div>
+            {% endfor %}
         </div>
     </section>
 
